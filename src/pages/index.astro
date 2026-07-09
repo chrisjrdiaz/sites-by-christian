@@ -2234,5 +2234,28 @@ const faqs = [
   .support-card .plan-details {
     margin-top: 1.1rem;
   }
+/* Keep pricing/support cards from stretching when one accordion opens */
+.service-grid,
+.services-grid,
+.support-grid,
+.support-cards {
+  align-items: start;
+}
 
+/* Let each support card size itself instead of matching the tallest card */
+.support-card {
+  height: auto;
+  min-height: 0;
+  justify-content: flex-start;
+}
+
+/* Keep the accordion in the normal flow of the card */
+.support-card .plan-details {
+  margin-top: 1.25rem;
+}
+
+/* Prevent flex spacing from pushing content around when another card grows */
+.support-card > * {
+  flex-shrink: 0;
+}
 </style>
