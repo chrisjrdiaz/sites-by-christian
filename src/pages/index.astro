@@ -4,11 +4,25 @@ const serviceProjects = [
     title: "Entry Site",
     price: "Starts at $500",
     description:
-      "A clean, professional starter website or landing page for small businesses that need to explain what they offer, look polished online, and give customers a clear way to get in touch.",
+      "A clean, professional starter website for small businesses that need a simple online home, clear messaging, and an easy way for customers to reach out.",
+    detailsIntro: "Entry Site includes:",
+    details: [
+      "Up to 3–5 pages or sections",
+      "Mobile-friendly design",
+      "Basic brand styling and theme customization",
+      "AI-assisted copywriting",
+      "Client-provided images",
+      "Contact or inquiry form",
+      "Basic SEO and social preview setup",
+      "Launch support",
+      "2 revision rounds",
+    ],
+    bestFit:
+      "Best for businesses that need a clean, professional online presence without complex ecommerce, automations, or custom systems.",
     projectType: "Example: Casa Ivy",
     projectTitle: "Casa Ivy",
     projectDescription:
-      "A simple, polished website example for a service-based brand that needs to present the business clearly and give customers a straightforward place to start.",
+      "A simple, polished website example for a small brand that needs to present the business clearly and give customers a straightforward place to start.",
     image: "/images/casa-ivy-fullpage.png",
     imageAlt: "Full-page website preview for Casa Ivy",
     link: "https://casa-ivy.myshopify.com/",
@@ -16,9 +30,23 @@ const serviceProjects = [
   },
   {
     title: "Custom Build",
-    price: "Starts at $800",
+    price: "Starts at $1,000",
     description:
-      "A more tailored website with stronger page structure, content organization, service details, forms, customer guidance, and a more developed experience for your business.",
+      "A more tailored website with expanded pages, stronger design direction, better content organization, forms, customer guidance, and more training after launch.",
+    detailsIntro: "Everything in Entry Site, plus:",
+    details: [
+      "Expanded page structure",
+      "More custom design and layout work",
+      "More tailored content sections",
+      "Product, menu, service, or collection organization",
+      "Newsletter or signup form setup",
+      "Customer segments where needed",
+      "Custom request or inquiry forms",
+      "More detailed handoff or training guide",
+      "3 revision rounds",
+    ],
+    bestFit:
+      "Best for businesses that need the site to do more than look good — they need it to guide customers, organize information, and support how the business actually works.",
     projectType: "Example: Cold Sugar Bakehouse",
     projectTitle: "Cold Sugar Bakehouse",
     projectDescription:
@@ -30,9 +58,24 @@ const serviceProjects = [
   },
   {
     title: "Ecommerce + Automations",
-    price: "Starts at $1,000",
+    price: "Starts at $1,500",
     description:
-      "A more advanced build for businesses that sell online and need products, collections, pickup or shipping flow, ordering systems, custom forms, backend structure, or automations.",
+      "A more advanced build for businesses that need ecommerce, product setup, scheduling, custom workflows, automations, or systems that help the website run part of the business.",
+    detailsIntro: "Everything in Custom Build, plus:",
+    details: [
+      "Ecommerce setup",
+      "Product and collection structure",
+      "Advanced or custom product pages",
+      "Pickup, shipping, delivery, or scheduling logic where needed",
+      "Email or SMS setup",
+      "Custom forms and request flows",
+      "Automations for repeat business tasks",
+      "Structured content such as metaobjects",
+      "Lightweight dashboards or custom workflows",
+      "Testing, detailed guide, and 4–5 revision rounds",
+    ],
+    bestFit:
+      "Best for businesses that need more than a website — they need a system that helps them sell, organize requests, reduce manual work, and support operations.",
     projectType: "Example: Proof’d Gluten-Free Bakery",
     projectTitle: "Proof’d Gluten-Free Bakery",
     projectDescription:
@@ -46,86 +89,141 @@ const serviceProjects = [
 
 const supportPlans = [
   {
-    title: "Site Care",
-    price: "$50/mo",
+    title: "Essential Support",
+    price: "Starts at $50/mo",
     description:
-      "Light monthly support for simple updates, page edits, image swaps, and basic troubleshooting.",
+      "Light monthly support for occasional updates, simple fixes, and quick website help after launch.",
+    requestCount: "1 request/month",
+    responseTime: "Within 5 business days",
+    detailsIntro: "Essential Support includes:",
+    details: [
+      "Email or text-based support",
+      "Small text changes",
+      "Image swaps",
+      "Button or link updates",
+      "Basic troubleshooting",
+      "Simple announcement or content updates",
+      "Monthly website check-in",
+    ],
   },
   {
-    title: "Store Support",
-    price: "$100/mo",
+    title: "Growth Support",
+    price: "Starts at $100/mo",
     description:
-      "Ongoing support for products, collections, announcements, forms, content updates, and regular website or store changes.",
+      "Ongoing website help for businesses that need regular content, product, menu, service, or store updates.",
+    requestCount: "3 requests/month",
+    responseTime: "Within 3 business days",
+    detailsIntro: "Everything in Essential Support, plus:",
+    details: [
+      "Product, menu, or service updates",
+      "Homepage or content section updates",
+      "New product additions when the scope is small",
+      "Product archiving or cleanup",
+      "Limited help with forms, apps, or automations",
+      "More regular website support",
+    ],
   },
   {
-    title: "Growth Partner",
-    price: "$200/mo",
+    title: "Premium Support",
+    price: "Starts at $200/mo",
     description:
-      "More hands-on support for launches, improvements, custom updates, automations, and site strategy as your business grows.",
+      "Priority support for ecommerce businesses or clients who want more hands-on help keeping the site updated.",
+    requestCount: "6 requests/month",
+    responseTime: "Within 1–2 business days",
+    detailsIntro: "Everything in Growth Support, plus:",
+    details: [
+      "Priority support",
+      "More involved ecommerce updates",
+      "Product and collection help",
+      "Form or automation adjustments",
+      "Monthly check-in",
+      "Rush support priority when available",
+      "Quarterly improvement recommendations",
+    ],
   },
 ];
 
 const process = [
   {
     step: "01",
-    title: "Understand the business",
-    text: "We start by learning what you offer, who your customers are, what feels confusing, and what your site needs to help people do.",
+    title: "Plan the project",
+    text: "We start by learning what you offer, what your customers need, what your current site is missing, and which package is the right starting point.",
   },
   {
     step: "02",
-    title: "Organize the experience",
-    text: "We map out the pages, products, services, forms, navigation, and customer flow so the site has a clear structure before it is built.",
+    title: "Collect the essentials",
+    text: "Before the build starts, we gather the logo, photos, copy, product details, platform access, domain details, brand colors, and any imports or exports needed.",
   },
   {
     step: "03",
-    title: "Build and refine",
-    text: "We design the site, write and organize the content, clean up the details, and test the experience across key pages and screens.",
+    title: "Build and revise",
+    text: "We design and build the site, then work through the included revision rounds to refine the structure, content, styling, and customer experience.",
   },
   {
     step: "04",
-    title: "Launch with guidance",
-    text: "We help you understand what was built, how to manage the important pieces, and what support is available after launch.",
+    title: "Launch and support",
+    text: "Projects begin with a 50% deposit, and the remaining balance is due before launch or handoff. After launch, monthly support is available for ongoing updates.",
   },
 ];
 
 const goodFit = [
   "You need a website that feels more professional than a basic DIY template.",
   "Your current site is outdated, confusing, or not doing a good job explaining your business.",
-  "You sell products and need your online store organized around real operations.",
-  "Customers often miss important details like services, pickup, shipping, ordering steps, or how to contact you.",
-  "You want a builder who can explain the site clearly instead of disappearing after launch.",
+  "You sell products, services, or experiences and need the site organized around real customer behavior.",
+  "Customers often miss important details like services, pickup, shipping, ordering steps, availability, or how to contact you.",
+  "You want practical website help from someone who understands small business operations, not a large agency handoff.",
 ];
 
 const faqs = [
   {
     question: "Do you only build ecommerce websites?",
     answer:
-      "No. We build entry-level websites, custom websites for service-based businesses, landing pages, portfolio-style sites, and ecommerce systems for businesses that sell products online.",
-  },
-  {
-    question: "What is included in an Entry Site?",
-    answer:
-      "An Entry Site typically includes a clean website or landing page with clear messaging, mobile-friendly layout, basic sections, and a simple path for customers to contact you or learn what you offer.",
-  },
-  {
-    question: "What makes a Custom Build different?",
-    answer:
-      "A Custom Build is for businesses that need more structure, more page depth, stronger content organization, service details, forms, customer guidance, or a more tailored experience than a starter site.",
+      "No. We build entry-level websites, custom small business websites, landing pages, portfolio-style sites, and ecommerce systems. Ecommerce is available when the business needs it, but the public focus is practical websites for small businesses.",
   },
   {
     question: "Can you help if I already have a website?",
     answer:
-      "Yes. We can help clean up, restructure, redesign, or improve an existing site. For ecommerce stores, we can also help with products, collections, navigation, pickup, shipping, and customer flow.",
+      "Yes. We can help clean up, restructure, redesign, or improve an existing site. For ecommerce stores, we can also help with products, collections, navigation, pickup, shipping, customer flow, and backend structure.",
   },
   {
-    question: "Do you offer ongoing support after launch?",
+    question: "How do payments work?",
     answer:
-      "Yes. Monthly support starts at $50/month and can cover updates, edits, troubleshooting, product changes, content updates, and ongoing improvements.",
+      "Projects begin with a 50% deposit. The remaining 50% is due before launch, final handoff, or transfer of completed files and access.",
   },
   {
-    question: "Will I know how to update my site after launch?",
+    question: "How do revisions work?",
     answer:
-      "Yes. We provide guidance so you understand how your site is structured, what to update, and where to go when something changes.",
+      "A revision is an adjustment to the agreed-upon direction, structure, or design that has already been built. A new request is work that changes the original scope or direction, adds new functionality, or requires rebuilding work in a way that makes previously completed work obsolete.",
+  },
+  {
+    question: "Are platform, app, and domain costs included?",
+    answer:
+      "No. Platform fees, app subscriptions, domain purchases, email hosting, paid themes, and third-party tools are paid separately by the client. We can help set them up and configure them.",
+  },
+  {
+    question: "Who can use monthly support?",
+    answer:
+      "Monthly support is currently available for websites we built. This keeps support practical because we already understand the site structure, setup, and decisions behind it.",
+  },
+  {
+    question: "What counts as a monthly support request?",
+    answer:
+      "A request is a small website update or support task, such as a text change, image swap, link update, product edit, announcement update, basic troubleshooting, or small product addition. Very small fixes may be handled at our discretion without counting toward the monthly request limit.",
+  },
+  {
+    question: "What is not included in monthly support?",
+    answer:
+      "Full redesigns, major rebuilds, large product imports, brand-new systems, and work that changes the site enough to become a new project are quoted separately. Unused support requests do not roll over.",
+  },
+  {
+    question: "Do you offer rush or emergency support?",
+    answer:
+      "Rush support may be available for an added fee depending on availability and the amount of work required. Weekend support is not currently included.",
+  },
+  {
+    question: "What projects are not a good fit?",
+    answer:
+      "We are not the right fit for large software platforms, SaaS products, user-account systems, or projects that require complex security architecture. We are best suited for small business websites, ecommerce setups, and practical website systems.",
   },
 ];
 ---
@@ -373,8 +471,7 @@ const faqs = [
             <p class="eyebrow">Services & selected work</p>
             <h2>Choose the level that fits where your business is now.</h2>
             <p>
-              Each tier is paired with a real project example so you can see how the work scales from
-              a simple starter site to a more advanced ecommerce system.
+              Start with the simple overview, then expand each tier to see what is included. Each package is paired with a real project example so you can see how the work scales.
             </p>
           </div>
 
@@ -390,7 +487,20 @@ const faqs = [
 
                   <p>{service.description}</p>
 
-                  <a href="#contact" class="text-link">Start with this tier</a>
+            <details class="plan-details service-details">
+              <summary>View what’s included</summary>
+              <div class="details-body">
+                <p class="details-intro">{service.detailsIntro}</p>
+                <ul class="included-list">
+                  {service.details.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+                <p class="details-note">{service.bestFit}</p>
+              </div>
+            </details>
+
+            <a href="#contact" class="text-link">Start with this tier</a>
                 </div>
 
                 <div class="project-side">
@@ -433,21 +543,37 @@ const faqs = [
             <p class="eyebrow">Monthly support</p>
             <h2>Ongoing help for the updates you do not have time to manage.</h2>
             <p>
-              Monthly plans are for business owners who want their website or store to stay current,
-              organized, and supported after launch.
+              After your site launches, you do not have to manage every little update yourself. Send the update by email or text, and we will help take care of it.
             </p>
           </div>
 
           <div class="support-grid">
             {supportPlans.map((plan) => (
               <article class="support-card">
-                <div>
-                  <h3>{plan.title}</h3>
-                  <p>{plan.description}</p>
-                </div>
+            <div>
+              <h3>{plan.title}</h3>
+              <p>{plan.description}</p>
+            </div>
 
-                <p class="support-price">{plan.price}</p>
-              </article>
+            <p class="support-price">{plan.price}</p>
+
+            <div class="support-meta">
+              <span>{plan.requestCount}</span>
+              <span>{plan.responseTime}</span>
+            </div>
+
+            <details class="plan-details support-details">
+              <summary>View what’s included</summary>
+              <div class="details-body">
+                <p class="details-intro">{plan.detailsIntro}</p>
+                <ul class="included-list">
+                  {plan.details.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          </article>
             ))}
           </div>
         </div>
@@ -494,14 +620,11 @@ const faqs = [
 
           <div class="rich-copy">
             <p>
-              A finished website should not come with a “good luck” and no explanation. We provide
-              guidance so you understand how your site is structured, what matters most, and where
-              to go when something needs to change.
+              A finished website should not come with a “good luck” and no explanation. For custom and ecommerce projects, we provide guidance so you understand the important pieces of what was built.
             </p>
 
             <p>
-              For custom projects, we can create a personalized guide that explains your pages,
-              products, forms, workflows, and common update steps in plain language.
+              If you want continued help after launch, monthly support gives you a simple way to keep the site updated without having to manage every detail yourself.
             </p>
           </div>
         </div>
@@ -2011,4 +2134,105 @@ const faqs = [
       transform: translateY(-12%);
     }
   }
+
+  /* Package and support accordions */
+  .plan-details {
+    margin-top: 1rem;
+    border: 1px solid rgba(221, 212, 200, 0.85);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.58);
+    overflow: hidden;
+  }
+
+  .plan-details summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.9rem 1rem;
+    color: var(--blue-dark);
+    font-weight: 750;
+    font-size: 0.92rem;
+  }
+
+  .plan-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .plan-details summary::after {
+    content: "+";
+    float: right;
+    color: var(--blue);
+    font-weight: 800;
+  }
+
+  .plan-details[open] summary::after {
+    content: "–";
+  }
+
+  .details-body {
+    padding: 0 1rem 1rem;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .details-intro,
+  .details-note {
+    font-size: 0.92rem;
+  }
+
+  .details-intro {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .included-list {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .included-list li {
+    position: relative;
+    padding-left: 1.45rem;
+    color: var(--muted);
+    line-height: 1.45;
+    font-size: 0.94rem;
+  }
+
+  .included-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--blue);
+    font-weight: 800;
+  }
+
+  .support-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .support-meta span {
+    display: inline-flex;
+    padding: 0.45rem 0.65rem;
+    border-radius: 999px;
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+    font-size: 0.82rem;
+    font-weight: 750;
+  }
+
+  .support-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .support-card .plan-details {
+    margin-top: 1.1rem;
+  }
+
 </style>
