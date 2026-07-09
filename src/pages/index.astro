@@ -1,22 +1,46 @@
 ---
-const buildServices = [
+const serviceProjects = [
   {
     title: "Entry Site",
     price: "Starts at $500",
     description:
       "A clean, professional starter website or landing page for small businesses that need to explain what they offer, look polished online, and give customers a clear way to get in touch.",
+    projectType: "Example: Casa Ivy",
+    projectTitle: "Casa Ivy",
+    projectDescription:
+      "A simple, polished website example for a service-based brand that needs to present the business clearly and give customers a straightforward place to start.",
+    image: "/images/casa-ivy-fullpage.png",
+    imageAlt: "Full-page website preview for Casa Ivy",
+    link: "https://casa-ivy.myshopify.com/",
+    linkLabel: "View live site",
   },
   {
     title: "Custom Build",
     price: "Starts at $800",
     description:
       "A more tailored website with stronger page structure, content organization, service details, forms, customer guidance, and a more developed experience for your business.",
+    projectType: "Example: Cold Sugar Bakehouse",
+    projectTitle: "Cold Sugar Bakehouse",
+    projectDescription:
+      "A more developed small business website example with ecommerce structure, market details, customer communication, product organization, and the everyday operations behind selling online.",
+    image: "/images/cold-sugar-fullpage.png",
+    imageAlt: "Full-page website preview for Cold Sugar Bakehouse",
+    link: "https://coldsugarbakehouse.com/",
+    linkLabel: "View live site",
   },
   {
     title: "Ecommerce + Automations",
     price: "Starts at $1,000",
     description:
       "A more advanced build for businesses that sell online and need products, collections, pickup or shipping flow, ordering systems, custom forms, backend structure, or automations.",
+    projectType: "Example: Proof’d Gluten-Free Bakery",
+    projectTitle: "Proof’d Gluten-Free Bakery",
+    projectDescription:
+      "A more advanced build with weekly product drops, pickup locations, product organization, custom order requests, customer guidance, and backend structure to make the site easier to manage.",
+    image: "/images/proofd-fullpage.png",
+    imageAlt: "Full-page website preview for Proof’d Gluten-Free Bakery",
+    link: "",
+    linkLabel: "Coming soon",
   },
 ];
 
@@ -111,10 +135,37 @@ const faqs = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sites by Christian | Custom Websites & Ecommerce Systems</title>
+
+    <title>Sites by Christian | Custom Websites for Small Businesses</title>
     <meta
       name="description"
-      content="Custom websites and ecommerce systems for small businesses that need a polished online presence, clearer customer flow, and practical support after launch."
+      content="Custom websites, ecommerce systems, and practical website support for small businesses."
+    />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sitesbychristian.com/" />
+    <meta property="og:title" content="Sites by Christian" />
+    <meta
+      property="og:description"
+      content="Custom websites, ecommerce systems, and practical website support for small businesses."
+    />
+    <meta
+      property="og:image"
+      content="https://sitesbychristian.com/images/sites-by-christian-preview.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sites by Christian" />
+    <meta
+      name="twitter:description"
+      content="Custom websites, ecommerce systems, and practical website support for small businesses."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sitesbychristian.com/images/sites-by-christian-preview.png"
     />
   </head>
 
@@ -124,10 +175,10 @@ const faqs = [
         <a href="#" class="brand">Sites by Christian</a>
 
         <nav>
-          <a href="#services">Services</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#work">Work</a>
+          <a href="#services-work">Services</a>
+          <a href="#pricing">Support</a>
           <a href="#about">About</a>
+          <a href="#process">Process</a>
           <a href="#faq">FAQ</a>
           <a href="#contact" class="nav-cta">Start a project</a>
         </nav>
@@ -136,10 +187,10 @@ const faqs = [
       </div>
 
       <div class="container mobile-section-menu" aria-label="Mobile section navigation">
-        <a href="#services">Services</a>
+        <a href="#services-work">Services</a>
         <a href="#pricing">Support</a>
-        <a href="#work">Work</a>
         <a href="#about">About</a>
+        <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
       </div>
     </header>
@@ -160,7 +211,7 @@ const faqs = [
 
             <div class="hero-actions">
               <a href="#contact" class="button primary">Start a project</a>
-              <a href="#work" class="button secondary">View work</a>
+              <a href="#services-work" class="button secondary">View services</a>
             </div>
 
             <div class="trust-row">
@@ -282,14 +333,12 @@ const faqs = [
         </div>
       </section>
 
-      <section class="section intro">
-        <div class="container two-column">
-          <div>
-            <p class="eyebrow">What we solve</p>
+      <section class="section dark-section">
+        <div class="container solve-grid">
+          <div class="dark-copy">
+            <p class="eyebrow light">What we solve</p>
             <h2>Your website should make your business easier to understand.</h2>
-          </div>
 
-          <div class="rich-copy">
             <p>
               A lot of small business websites start with good intentions, but the details get messy.
               Services are unclear, products are hard to manage, forms feel clunky, customers miss
@@ -301,53 +350,84 @@ const faqs = [
               customers see and the practical structure behind it that helps your business stay organized.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section class="section fit-section">
-        <div class="container fit-grid">
-          <div>
+          <div class="fit-card">
             <p class="eyebrow">Good fit</p>
-            <h2>For businesses that need more than a pretty page.</h2>
-          </div>
+            <h3>For businesses that need more than a pretty page.</h3>
 
-          <div class="fit-list">
-            {goodFit.map((item) => (
-              <div class="fit-item">
-                <span></span>
-                <p>{item}</p>
-              </div>
-            ))}
+            <div class="fit-list">
+              {goodFit.map((item) => (
+                <div class="fit-item">
+                  <span></span>
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section soft" id="services">
+      <section class="section services-work-section" id="services-work">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Services</p>
-            <h2>Clear build options for where your business is now.</h2>
+          <div class="section-head wide">
+            <p class="eyebrow">Services & selected work</p>
+            <h2>Choose the level that fits where your business is now.</h2>
             <p>
-              Every project is scoped before we start, but these starting points make it easier to
-              understand what kind of support may fit your business.
+              Each tier is paired with a real project example so you can see how the work scales from
+              a simple starter site to a more advanced ecommerce system.
             </p>
           </div>
 
-          <div class="price-table">
-            {buildServices.map((service) => (
-              <article class="price-row">
-                <div>
-                  <h3>{service.title}</h3>
+          <div class="service-work-stack">
+            {serviceProjects.map((service) => (
+              <article class="service-work-card">
+                <div class="service-info">
+                  <p class="service-kicker">Service tier</p>
+                  <div class="service-title-row">
+                    <h3>{service.title}</h3>
+                    <p class="price">{service.price}</p>
+                  </div>
+
                   <p>{service.description}</p>
+
+                  <a href="#contact" class="text-link">Start with this tier</a>
                 </div>
-                <p class="price">{service.price}</p>
+
+                <div class="project-side">
+                  <div class="project-preview-shell">
+                    <div class="project-preview-top">
+                      <span>Scrollable preview</span>
+                      <span>↕</span>
+                    </div>
+
+                    <div class="project-preview" tabindex="0" aria-label={`Scrollable preview of ${service.projectTitle}`}>
+                      <img src={service.image} alt={service.imageAlt} loading="lazy" />
+                    </div>
+                  </div>
+
+                  <div class="project-content">
+                    <p class="project-type">{service.projectType}</p>
+                    <h3>{service.projectTitle}</h3>
+                    <p>{service.projectDescription}</p>
+
+                    <div class="project-links">
+                      {service.link ? (
+                        <a href={service.link} target="_blank" rel="noreferrer">
+                          {service.linkLabel}
+                        </a>
+                      ) : (
+                        <span>{service.linkLabel}</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section class="section" id="pricing">
+      <section class="section support-section" id="pricing">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">Monthly support</p>
@@ -358,144 +438,22 @@ const faqs = [
             </p>
           </div>
 
-          <div class="price-table">
+          <div class="support-grid">
             {supportPlans.map((plan) => (
-              <article class="price-row compact">
+              <article class="support-card">
                 <div>
                   <h3>{plan.title}</h3>
                   <p>{plan.description}</p>
                 </div>
-                <p class="price">{plan.price}</p>
+
+                <p class="support-price">{plan.price}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section class="section soft" id="work">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Selected work</p>
-            <h2>Real examples you can scroll through.</h2>
-            <p>
-              Each preview uses a full-page screenshot so you can explore more of the site without
-              leaving this page.
-            </p>
-          </div>
-
-          <div class="portfolio-grid">
-            <article class="project-card">
-              <div class="project-preview-shell">
-                <div class="project-preview-top">
-                  <span>Scrollable preview</span>
-                  <span>↕</span>
-                </div>
-
-                <div class="project-preview" tabindex="0" aria-label="Scrollable preview of Casa Ivy website">
-                  <img
-                    src="/images/casa-ivy-fullpage.png"
-                    alt="Full-page website preview for Casa Ivy"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              <div class="project-content">
-                <p class="project-type">Entry site</p>
-                <h3>Casa Ivy</h3>
-                <p>
-                  A simple, polished website example for a service-based brand that needs to explain
-                  what it offers, present the business clearly, and give customers a straightforward
-                  place to start.
-                </p>
-
-                <div class="project-links">
-                  <p class="package-match">Best match: Entry Site</p>
-                  <a href="https://casa-ivy.myshopify.com/" target="_blank" rel="noreferrer">
-                    View live site
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-preview-shell">
-                <div class="project-preview-top">
-                  <span>Scrollable preview</span>
-                  <span>↕</span>
-                </div>
-
-                <div
-                  class="project-preview"
-                  tabindex="0"
-                  aria-label="Scrollable preview of Cold Sugar Bakehouse website"
-                >
-                  <img
-                    src="/images/cold-sugar-fullpage.png"
-                    alt="Full-page website preview for Cold Sugar Bakehouse"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              <div class="project-content">
-                <p class="project-type">Custom build</p>
-                <h3>Cold Sugar Bakehouse</h3>
-                <p>
-                  A more developed small business website example with ecommerce structure, market
-                  details, customer communication, product organization, and the everyday operations
-                  behind selling online.
-                </p>
-
-                <div class="project-links">
-                  <p class="package-match">Best match: Custom Build</p>
-                  <a href="https://coldsugarbakehouse.com/" target="_blank" rel="noreferrer">
-                    View live site
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-preview-shell">
-                <div class="project-preview-top">
-                  <span>Scrollable preview</span>
-                  <span>↕</span>
-                </div>
-
-                <div
-                  class="project-preview"
-                  tabindex="0"
-                  aria-label="Scrollable preview of Proof’d Gluten-Free Bakery website"
-                >
-                  <img
-                    src="/images/proofd-fullpage.png"
-                    alt="Full-page website preview for Proof’d Gluten-Free Bakery"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              <div class="project-content">
-                <p class="project-type">Ecommerce + automations</p>
-                <h3>Proof’d Gluten-Free Bakery</h3>
-                <p>
-                  A more advanced build with weekly product drops, pickup locations, product
-                  organization, custom order requests, customer guidance, and backend structure to make
-                  the site easier to manage.
-                </p>
-
-                <div class="project-links">
-                  <p class="package-match">Best match: Ecommerce + Automations</p>
-                  <span>Coming soon</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section about" id="about">
+      <section class="section about-section" id="about">
         <div class="container about-grid">
           <div class="portrait-card">
             <img src="/images/christian-profile.jpg" alt="Christian, founder of Sites by Christian" />
@@ -530,7 +488,7 @@ const faqs = [
       <section class="section guidance">
         <div class="container two-column">
           <div>
-            <p class="eyebrow">After launch</p>
+            <p class="eyebrow light">After launch</p>
             <h2>Clear guidance, not a confusing handoff.</h2>
           </div>
 
@@ -549,7 +507,7 @@ const faqs = [
         </div>
       </section>
 
-      <section class="section">
+      <section class="section process-section" id="process">
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">Process</p>
@@ -568,7 +526,7 @@ const faqs = [
         </div>
       </section>
 
-      <section class="section soft" id="faq">
+      <section class="section faq-section" id="faq">
         <div class="container faq-grid">
           <div>
             <p class="eyebrow">FAQ</p>
@@ -743,6 +701,7 @@ const faqs = [
     --blue-dark: #173ea8;
     --blue-soft: #e6efff;
     --ink: #101828;
+    --cream-card: rgba(255, 255, 255, 0.72);
   }
 
   * {
@@ -795,7 +754,7 @@ const faqs = [
   }
 
   h2 {
-    max-width: 740px;
+    max-width: 760px;
     font-size: clamp(2rem, 3.5vw, 3.25rem);
     line-height: 1.05;
     font-weight: 630;
@@ -867,6 +826,9 @@ const faqs = [
 
   .hero {
     padding: 5.75rem 0 3rem;
+    background:
+      radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 22rem),
+      var(--bg);
   }
 
   .hero-grid {
@@ -887,6 +849,10 @@ const faqs = [
     font-weight: 750;
     text-transform: uppercase;
     letter-spacing: 0.14em;
+  }
+
+  .eyebrow.light {
+    color: #93c5fd;
   }
 
   .lead {
@@ -1262,6 +1228,7 @@ const faqs = [
 
   .builder-strip {
     padding: 0 0 4.5rem;
+    background: var(--bg);
   }
 
   .builder-card {
@@ -1272,7 +1239,7 @@ const faqs = [
     padding: 1rem;
     border: 1px solid rgba(37, 99, 235, 0.14);
     border-radius: 1.35rem;
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.78);
     box-shadow: 0 18px 48px rgba(16, 24, 40, 0.08);
   }
 
@@ -1310,10 +1277,12 @@ const faqs = [
     line-height: 1.55;
   }
 
-  .builder-link {
+  .builder-link,
+  .text-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
     min-height: 40px;
     padding: 0.7rem 0.9rem;
     border-radius: 999px;
@@ -1324,34 +1293,55 @@ const faqs = [
     white-space: nowrap;
   }
 
+  .text-link {
+    margin-top: 0.3rem;
+  }
+
   .section {
-    padding: 5rem 0;
+    padding: 5.25rem 0;
   }
 
-  .soft {
-    background: var(--soft);
+  .dark-section,
+  .guidance {
+    background:
+      radial-gradient(circle at top left, rgba(37, 99, 235, 0.28), transparent 24rem),
+      linear-gradient(135deg, #101828, #0b1220);
   }
 
-  .two-column,
-  .contact-grid,
-  .faq-grid,
-  .fit-grid {
+  .solve-grid {
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
+    grid-template-columns: 0.95fr 1.05fr;
     gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: start;
+    align-items: center;
   }
 
-  .rich-copy {
+  .dark-copy {
     display: grid;
     gap: 1rem;
-    max-width: 740px;
   }
 
-  .fit-section {
-    background: var(--bg);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  .dark-copy h2,
+  .guidance h2 {
+    color: white;
+  }
+
+  .dark-copy p,
+  .guidance p {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .fit-card {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1.35rem;
+    border-radius: 1.35rem;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+  }
+
+  .fit-card h3 {
+    font-size: clamp(1.45rem, 2.4vw, 2.1rem);
   }
 
   .fit-list {
@@ -1365,7 +1355,7 @@ const faqs = [
     gap: 0.8rem;
     align-items: start;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.62);
+    background: rgba(241, 234, 223, 0.72);
     border: 1px solid var(--border);
     border-radius: 1rem;
   }
@@ -1378,6 +1368,12 @@ const faqs = [
     background: var(--blue);
   }
 
+  .services-work-section {
+    background:
+      radial-gradient(circle at top right, rgba(37, 99, 235, 0.1), transparent 24rem),
+      var(--soft);
+  }
+
   .section-head {
     display: grid;
     gap: 0.9rem;
@@ -1385,43 +1381,64 @@ const faqs = [
     margin-bottom: 2rem;
   }
 
-  .price-table {
-    border-top: 1px solid var(--border);
+  .section-head.wide {
+    max-width: 860px;
   }
 
-  .price-row {
+  .service-work-stack {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 2rem;
-    align-items: start;
-    padding: 1.65rem 0;
-    border-bottom: 1px solid var(--border);
+    gap: 1.35rem;
   }
 
-  .price-row div {
+  .service-work-card {
     display: grid;
-    gap: 0.35rem;
-    max-width: 760px;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: 1.25rem;
+    align-items: stretch;
+    padding: 1.25rem;
+    border-radius: 1.45rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(16, 24, 40, 0.08);
+    box-shadow: 0 20px 60px rgba(16, 24, 40, 0.08);
+  }
+
+  .service-info {
+    display: grid;
+    align-content: start;
+    gap: 0.9rem;
+    padding: 1rem;
+  }
+
+  .service-kicker,
+  .project-type {
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .service-title-row {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .service-title-row h3 {
+    font-size: clamp(1.65rem, 3vw, 2.45rem);
   }
 
   .price {
     color: var(--blue-dark);
-    font-weight: 750;
+    font-weight: 800;
     white-space: nowrap;
+    font-size: 1rem;
   }
 
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.1rem;
-  }
-
-  .project-card {
+  .project-side {
     overflow: hidden;
+    border-radius: 1.2rem;
     background: var(--card);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 1.25rem;
-    box-shadow: 0 16px 44px rgba(16, 24, 40, 0.06);
+    border: 1px solid rgba(16, 24, 40, 0.08);
   }
 
   .project-preview-shell {
@@ -1462,7 +1479,7 @@ const faqs = [
   }
 
   .project-preview {
-    height: 315px;
+    height: 330px;
     overflow-y: auto;
     overscroll-behavior: contain;
     background:
@@ -1499,25 +1516,10 @@ const faqs = [
     padding: 1.25rem;
   }
 
-  .project-type {
-    color: var(--blue);
-    font-size: 0.78rem;
-    font-weight: 750;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .package-match {
-    color: var(--blue-dark);
-    font-size: 0.88rem;
-    font-weight: 650;
-  }
-
   .project-links {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     gap: 0.75rem;
     margin-top: 0.35rem;
   }
@@ -1536,13 +1538,51 @@ const faqs = [
     font-weight: 750;
   }
 
-  .project-links a:hover {
+  .project-links a:hover,
+  .text-link:hover,
+  .builder-link:hover {
     background: var(--blue);
     color: white;
   }
 
-  .about {
+  .support-section {
     background: var(--bg);
+  }
+
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .support-card {
+    display: grid;
+    gap: 1.25rem;
+    justify-content: space-between;
+    min-height: 260px;
+    padding: 1.35rem;
+    border-radius: 1.25rem;
+    background: white;
+    border: 1px solid rgba(16, 24, 40, 0.08);
+    box-shadow: 0 18px 50px rgba(16, 24, 40, 0.06);
+  }
+
+  .support-card div {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .support-price {
+    color: var(--blue-dark);
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  .about-section {
+    background:
+      radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.12), transparent 22rem),
+      var(--soft);
   }
 
   .about-grid {
@@ -1574,22 +1614,29 @@ const faqs = [
   .about-copy {
     display: grid;
     gap: 1rem;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border-radius: 1.35rem;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(16, 24, 40, 0.08);
   }
 
-  .guidance {
-    background: var(--ink);
+  .two-column,
+  .contact-grid,
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
   }
 
-  .guidance h2 {
-    color: white;
+  .rich-copy {
+    display: grid;
+    gap: 1rem;
+    max-width: 740px;
   }
 
-  .guidance p {
-    color: rgba(255, 255, 255, 0.75);
-  }
-
-  .guidance .eyebrow {
-    color: #93c5fd;
+  .process-section {
+    background: var(--soft);
   }
 
   .process-grid {
@@ -1600,9 +1647,10 @@ const faqs = [
 
   .process-card {
     padding: 1.2rem;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(16, 24, 40, 0.08);
     border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.62);
+    box-shadow: 0 14px 36px rgba(16, 24, 40, 0.05);
   }
 
   .process-card span {
@@ -1617,6 +1665,11 @@ const faqs = [
     margin-bottom: 0.55rem;
   }
 
+  .faq-section,
+  .contact {
+    background: var(--bg);
+  }
+
   .faq-list {
     display: grid;
     gap: 0.8rem;
@@ -1627,6 +1680,7 @@ const faqs = [
     border: 1px solid var(--border);
     border-radius: 1rem;
     padding: 1rem 1.1rem;
+    box-shadow: 0 12px 34px rgba(16, 24, 40, 0.04);
   }
 
   .faq-item summary {
@@ -1646,6 +1700,7 @@ const faqs = [
     border: 1px solid var(--border);
     border-radius: 1.25rem;
     background: var(--card);
+    box-shadow: 0 18px 50px rgba(16, 24, 40, 0.06);
   }
 
   label {
@@ -1714,6 +1769,7 @@ const faqs = [
   footer {
     padding: 2rem 0;
     border-top: 1px solid var(--border);
+    background: var(--bg);
   }
 
   .footer-inner {
@@ -1732,12 +1788,18 @@ const faqs = [
   }
 
   @media (max-width: 1000px) {
-    .portfolio-grid {
+    .service-work-card,
+    .solve-grid,
+    .support-grid {
       grid-template-columns: 1fr;
     }
 
     .project-preview {
       height: 390px;
+    }
+
+    .support-card {
+      min-height: auto;
     }
   }
 
@@ -1788,8 +1850,7 @@ const faqs = [
     .two-column,
     .contact-grid,
     .about-grid,
-    .faq-grid,
-    .fit-grid {
+    .faq-grid {
       grid-template-columns: 1fr;
     }
 
@@ -1818,11 +1879,6 @@ const faqs = [
 
     .process-grid {
       grid-template-columns: 1fr;
-    }
-
-    .price-row {
-      grid-template-columns: 1fr;
-      gap: 0.7rem;
     }
 
     .portrait-card {
@@ -1920,6 +1976,14 @@ const faqs = [
 
     .builder-link {
       grid-column: auto;
+    }
+
+    .service-work-card {
+      padding: 0.85rem;
+    }
+
+    .service-info {
+      padding: 0.65rem;
     }
 
     .project-preview {
