@@ -317,6 +317,12 @@ const faqs = [
           <a href="#about">About</a>
           <a href="#process">Process</a>
           <a href="#faq">FAQ</a>
+          <a
+            href="https://portal.sitesbychristian.com"
+            class="portal-nav-link"
+          >
+            Client Portal
+          </a>
           <a href="#contact" class="nav-cta">Start a project</a>
         </nav>
 
@@ -329,6 +335,12 @@ const faqs = [
         <a href="#about">About</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
+        <a
+          href="https://portal.sitesbychristian.com"
+          class="mobile-portal-link"
+        >
+          Client Portal
+        </a>
       </div>
     </header>
 
@@ -876,8 +888,24 @@ const faqs = [
 
     <footer>
       <div class="container footer-inner">
-        <p>Sites by Christian</p>
-        <span>Custom websites and ecommerce systems for small businesses.</span>
+        <div class="footer-brand">
+          <p>Sites by Christian</p>
+          <span>
+            Custom websites and ecommerce systems for small businesses.
+          </span>
+        </div>
+
+        <div class="footer-portal-links">
+          <a href="https://portal.sitesbychristian.com">
+            Client Portal
+          </a>
+          <a
+            href="https://portal.sitesbychristian.com/admin"
+            class="footer-admin-link"
+          >
+            Admin Portal
+          </a>
+        </div>
       </div>
     </footer>
 
@@ -1082,6 +1110,24 @@ const faqs = [
 
   nav a:hover {
     color: var(--text);
+  }
+
+  .portal-nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 0.8rem;
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+    color: var(--blue-dark);
+    font-weight: 750;
+  }
+
+  .portal-nav-link:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    background: var(--blue-soft);
+    color: var(--blue-dark);
   }
 
   .nav-cta {
@@ -2057,17 +2103,47 @@ const faqs = [
 
   .footer-inner {
     display: flex;
+    align-items: flex-end;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    display: grid;
+    gap: 0.3rem;
   }
 
   footer p {
+    margin: 0;
     color: var(--text);
     font-weight: 700;
   }
 
   footer span {
     color: var(--muted);
+  }
+
+  .footer-portal-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.82rem;
+  }
+
+  .footer-portal-links a {
+    color: var(--blue-dark);
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .footer-portal-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .footer-admin-link {
+    color: var(--muted) !important;
+    font-weight: 600 !important;
   }
 
   @media (max-width: 1000px) {
@@ -2175,6 +2251,11 @@ const faqs = [
 
     .footer-inner {
       display: grid;
+      align-items: start;
+    }
+
+    .footer-portal-links {
+      flex-wrap: wrap;
     }
   }
 
