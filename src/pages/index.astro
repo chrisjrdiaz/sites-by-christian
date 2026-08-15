@@ -329,18 +329,25 @@ const faqs = [
         <a href="#contact" class="mobile-nav-cta">Start a project</a>
       </div>
 
+      <div class="container mobile-portal-row">
+        <a
+          href="https://portal.sitesbychristian.com"
+          class="mobile-client-portal"
+        >
+          <span>Existing client?</span>
+          <strong>
+            Open Client Portal
+            <span aria-hidden="true">→</span>
+          </strong>
+        </a>
+      </div>
+
       <div class="container mobile-section-menu" aria-label="Mobile section navigation">
         <a href="#services-work">Services</a>
         <a href="#pricing">Support</a>
         <a href="#about">About</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
-        <a
-          href="https://portal.sitesbychristian.com"
-          class="mobile-portal-link"
-        >
-          Client Portal
-        </a>
       </div>
     </header>
 
@@ -1149,8 +1156,39 @@ const faqs = [
     white-space: nowrap;
   }
 
+  .mobile-portal-row,
   .mobile-section-menu {
     display: none;
+  }
+
+  .mobile-client-portal {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 14px;
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .mobile-client-portal > span {
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 650;
+  }
+
+  .mobile-client-portal strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    white-space: nowrap;
   }
 
   .hero {
@@ -2171,6 +2209,11 @@ const faqs = [
       display: inline-flex;
     }
 
+    .mobile-portal-row {
+      display: block;
+      padding-bottom: 0.55rem;
+    }
+
     .mobile-section-menu {
       display: flex;
       gap: 0.5rem;
@@ -2276,6 +2319,23 @@ const faqs = [
       min-height: 36px;
       padding: 0.6rem 0.78rem;
       font-size: 0.82rem;
+    }
+
+    .mobile-portal-row {
+      padding-bottom: 0.5rem;
+    }
+
+    .mobile-client-portal {
+      min-height: 46px;
+      padding: 0.65rem 0.78rem;
+    }
+
+    .mobile-client-portal > span {
+      font-size: 0.7rem;
+    }
+
+    .mobile-client-portal strong {
+      font-size: 0.78rem;
     }
 
     .mobile-section-menu {
