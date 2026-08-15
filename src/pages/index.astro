@@ -309,7 +309,10 @@ const faqs = [
   <body>
     <header class="site-header">
       <div class="container nav-wrap">
-        <a href="#" class="brand">Sites by Christian</a>
+        <a href="#" class="brand">
+          <span class="brand-full">Sites by Christian</span>
+          <span class="brand-compact">SBC</span>
+        </a>
 
         <nav>
           <a href="#services-work">Services</a>
@@ -326,20 +329,21 @@ const faqs = [
           <a href="#contact" class="nav-cta">Start a project</a>
         </nav>
 
-        <a href="#contact" class="mobile-nav-cta">Start a project</a>
-      </div>
+        <div class="mobile-header-actions">
+          <a
+            href="https://portal.sitesbychristian.com"
+            class="mobile-header-portal"
+          >
+            Client Portal
+          </a>
 
-      <div class="container mobile-portal-row">
-        <a
-          href="https://portal.sitesbychristian.com"
-          class="mobile-client-portal"
-        >
-          <span>Existing client?</span>
-          <strong>
-            Open Client Portal
-            <span aria-hidden="true">→</span>
-          </strong>
-        </a>
+          <a
+            href="#contact"
+            class="mobile-nav-cta"
+          >
+            Start a project
+          </a>
+        </div>
       </div>
 
       <div class="container mobile-section-menu" aria-label="Mobile section navigation">
@@ -1010,17 +1014,68 @@ const faqs = [
           ".site-header"
         );
 
+      let lastScrollY =
+        window.scrollY;
+
       const updateMobileHeader = () => {
         if (!siteHeader) return;
 
-        const compact =
-          window.innerWidth <= 900 &&
-          window.scrollY > 80;
+        if (window.innerWidth > 900) {
+          siteHeader.classList.remove(
+            "is-compact",
+            "is-scroll-up"
+          );
 
-        siteHeader.classList.toggle(
-          "is-compact",
-          compact
+          lastScrollY =
+            window.scrollY;
+
+          return;
+        }
+
+        const currentScrollY =
+          window.scrollY;
+
+        /*
+          Close to the top: always show the full header.
+        */
+        if (currentScrollY <= 60) {
+          siteHeader.classList.remove(
+            "is-compact",
+            "is-scroll-up"
+          );
+
+          lastScrollY =
+            currentScrollY;
+
+          return;
+        }
+
+        siteHeader.classList.add(
+          "is-compact"
         );
+
+        const difference =
+          currentScrollY -
+          lastScrollY;
+
+        /*
+          Reveal section navigation when the visitor
+          intentionally scrolls upward.
+
+          Hide it again while scrolling down.
+        */
+        if (difference < -4) {
+          siteHeader.classList.add(
+            "is-scroll-up"
+          );
+        } else if (difference > 4) {
+          siteHeader.classList.remove(
+            "is-scroll-up"
+          );
+        }
+
+        lastScrollY =
+          currentScrollY;
       };
 
       updateMobileHeader();
@@ -1188,40 +1243,29 @@ const faqs = [
     white-space: nowrap;
   }
 
-  .mobile-portal-row,
+  .mobile-header-actions,
   .mobile-section-menu {
     display: none;
   }
 
-  .mobile-client-portal {
-    width: 100%;
-    min-height: 48px;
-    padding: 0.7rem 0.9rem;
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    border-radius: 14px;
-    background: var(--blue-soft);
+  .brand-compact {
+    display: none;
+  }
+
+  .mobile-header-portal {
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid rgba(37, 99, 235, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
     color: var(--blue-dark);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .mobile-client-portal > span {
-    color: var(--muted);
-    font-size: 0.75rem;
-    font-weight: 650;
-  }
-
-  .mobile-client-portal strong {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
     font-size: 0.82rem;
     font-weight: 800;
     white-space: nowrap;
   }
+
 
   .hero {
     padding: 5.75rem 0 3rem;
@@ -2237,13 +2281,16 @@ const faqs = [
       display: none;
     }
 
-    .mobile-nav-cta {
-      display: inline-flex;
+    .mobile-header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.45rem;
     }
 
-    .mobile-portal-row {
-      display: block;
-      padding-bottom: 0.55rem;
+    .mobile-header-portal,
+    .mobile-nav-cta {
+      display: inline-flex;
     }
 
     .mobile-section-menu {
@@ -2281,11 +2328,17 @@ const faqs = [
     }
 
     /*
-      Mobile sticky header:
-      full navigation is visible at the top of the page,
-      then collapses once the visitor starts scrolling.
+      Mobile sticky header behavior:
+
+      Top:
+      full brand + both actions + section navigation.
+
+      Scroll down:
+      one compact utility row.
+
+      Scroll up:
+      compact utility row + section navigation.
     */
-    .mobile-portal-row,
     .mobile-section-menu {
       transition:
         max-height 0.2s ease,
@@ -2294,7 +2347,36 @@ const faqs = [
         transform 0.2s ease;
     }
 
-    .site-header.is-compact .mobile-section-menu {
+    .site-header.is-compact .brand-full {
+      display: none;
+    }
+
+    .site-header.is-compact .brand-compact {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--blue);
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .site-header.is-compact .nav-wrap {
+      min-height: 58px;
+    }
+
+    .site-header.is-compact .mobile-header-portal,
+    .site-header.is-compact .mobile-nav-cta {
+      min-height: 34px;
+      padding: 0.46rem 0.68rem;
+      font-size: 0.72rem;
+    }
+
+    .site-header.is-compact:not(.is-scroll-up)
+      .mobile-section-menu {
       max-height: 0;
       padding-top: 0;
       padding-bottom: 0;
@@ -2304,25 +2386,12 @@ const faqs = [
       transform: translateY(-4px);
     }
 
-    .site-header.is-compact .mobile-portal-row {
-      padding-bottom: 0.4rem;
-    }
-
-    .site-header.is-compact .mobile-client-portal {
-      width: fit-content;
-      min-height: 34px;
-      margin-left: auto;
-      padding: 0.42rem 0.72rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.82);
-    }
-
-    .site-header.is-compact .mobile-client-portal > span {
-      display: none;
-    }
-
-    .site-header.is-compact .mobile-client-portal strong {
-      font-size: 0.74rem;
+    .site-header.is-compact.is-scroll-up
+      .mobile-section-menu {
+      max-height: 60px;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .hero-grid,
@@ -2398,21 +2467,15 @@ const faqs = [
       font-size: 0.82rem;
     }
 
-    .mobile-portal-row {
-      padding-bottom: 0.5rem;
+    .mobile-header-actions {
+      gap: 0.35rem;
     }
 
-    .mobile-client-portal {
-      min-height: 46px;
-      padding: 0.65rem 0.78rem;
-    }
-
-    .mobile-client-portal > span {
-      font-size: 0.7rem;
-    }
-
-    .mobile-client-portal strong {
-      font-size: 0.78rem;
+    .mobile-header-portal,
+    .mobile-nav-cta {
+      min-height: 34px;
+      padding: 0.52rem 0.62rem;
+      font-size: 0.72rem;
     }
 
     .mobile-section-menu {
