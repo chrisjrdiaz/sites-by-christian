@@ -1004,6 +1004,38 @@ const faqs = [
         });
       });
     </script>
+    <script>
+      const siteHeader =
+        document.querySelector<HTMLElement>(
+          ".site-header"
+        );
+
+      const updateMobileHeader = () => {
+        if (!siteHeader) return;
+
+        const compact =
+          window.innerWidth <= 900 &&
+          window.scrollY > 80;
+
+        siteHeader.classList.toggle(
+          "is-compact",
+          compact
+        );
+      };
+
+      updateMobileHeader();
+
+      window.addEventListener(
+        "scroll",
+        updateMobileHeader,
+        { passive: true }
+      );
+
+      window.addEventListener(
+        "resize",
+        updateMobileHeader
+      );
+    </script>
   </body>
 </html>
 
@@ -2246,6 +2278,51 @@ const faqs = [
 
     .mobile-section-menu a:hover {
       background: var(--blue-soft);
+    }
+
+    /*
+      Mobile sticky header:
+      full navigation is visible at the top of the page,
+      then collapses once the visitor starts scrolling.
+    */
+    .mobile-portal-row,
+    .mobile-section-menu {
+      transition:
+        max-height 0.2s ease,
+        opacity 0.18s ease,
+        padding 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .site-header.is-compact .mobile-section-menu {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+      transform: translateY(-4px);
+    }
+
+    .site-header.is-compact .mobile-portal-row {
+      padding-bottom: 0.4rem;
+    }
+
+    .site-header.is-compact .mobile-client-portal {
+      width: fit-content;
+      min-height: 34px;
+      margin-left: auto;
+      padding: 0.42rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .site-header.is-compact .mobile-client-portal > span {
+      display: none;
+    }
+
+    .site-header.is-compact .mobile-client-portal strong {
+      font-size: 0.74rem;
     }
 
     .hero-grid,
